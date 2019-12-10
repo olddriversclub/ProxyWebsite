@@ -18,12 +18,16 @@ var opt = {
         '/api/': config.netApiHost,
         '/sisjava/': config.javaApiHost,
         '/newsis': config.vueHost,
+        '/v2': config.v2Host,
     },
     // proxyTimeout: 15000,
     // logLevel: 'debug',
     onProxyRes: function(proxyRes, req, res) {
+        // console.log(req.url+'    '+proxyRes.connection._host+':'+proxyRes.connection.remotePort);
     },
     onProxyReq: function(proxyReq, req, res) {
+        // console.log(proxyReq,req,res);
+        console.log(proxyReq.method+'  '+proxyReq.path+'   '+proxyReq.agent.protocol+'//'+proxyReq.connection._host);
     },
     onError: function(err, req, res) {
         console.log(err);
